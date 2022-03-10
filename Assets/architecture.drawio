@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="frDRAHuqxv-iFKWPPFK3" name="Page-1">
-        <mxGraphModel dx="1712" dy="918" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="816" dy="588" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -74,9 +74,6 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="28" value="" style="edgeStyle=none;html=1;" parent="1" source="15" target="16" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
                 <mxCell id="15" value="Process Order Shipment&lt;br&gt;(Function)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
                     <mxGeometry x="635" y="216" width="68" height="60" as="geometry"/>
                 </mxCell>
@@ -101,41 +98,41 @@
                 <mxCell id="25" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/analytics/Log_Analytics_Workspaces.svg;" parent="1" vertex="1">
                     <mxGeometry x="255" y="380" width="64" height="64" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" style="edgeStyle=none;html=1;" edge="1" parent="1" source="30">
+                <mxCell id="29" style="edgeStyle=none;html=1;" parent="1" source="30" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="228" y="740" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="30" value="Order Api&lt;br&gt;[Generate, Get, Approve]&lt;br&gt;(Functions)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" vertex="1" parent="1">
+                <mxCell id="30" value="Order Api&lt;br&gt;[Generate, Get, Approve]&lt;br&gt;(Functions)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
                     <mxGeometry x="78" y="710" width="68" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" style="edgeStyle=none;html=1;entryX=-0.02;entryY=0.522;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="32" target="36">
+                <mxCell id="31" style="edgeStyle=none;html=1;entryX=-0.02;entryY=0.522;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="32" target="36" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="32" value="Sales DB&lt;br&gt;(Cosmos DB)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/databases/Azure_Cosmos_DB.svg;" vertex="1" parent="1">
+                <mxCell id="32" value="Sales DB&lt;br&gt;(Cosmos DB)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/databases/Azure_Cosmos_DB.svg;" parent="1" vertex="1">
                     <mxGeometry x="208" y="706" width="64" height="64" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="36" target="40">
+                <mxCell id="34" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="36" target="40" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="36" value="Forward Orders&lt;br&gt;(Function)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" vertex="1" parent="1">
+                <mxCell id="36" value="Forward Orders&lt;br&gt;(Function)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
                     <mxGeometry x="339" y="706" width="68" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" style="edgeStyle=none;html=1;" edge="1" parent="1" source="40" target="47">
+                <mxCell id="39" style="edgeStyle=none;html=1;" parent="1" source="40" target="47" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="588" y="740" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="53" style="edgeStyle=none;html=1;entryX=-0.02;entryY=0.522;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="40" target="49">
+                <mxCell id="53" style="edgeStyle=none;html=1;entryX=-0.02;entryY=0.522;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="40" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" style="edgeStyle=none;html=1;entryX=0.02;entryY=0.511;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="40" target="44">
+                <mxCell id="54" style="edgeStyle=none;html=1;entryX=0.02;entryY=0.511;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="40" target="44" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="Order Topic" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/integration/Event_Grid_Topics.svg;" vertex="1" parent="1">
+                <mxCell id="40" value="Order Topic" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/integration/Event_Grid_Topics.svg;" parent="1" vertex="1">
                     <mxGeometry x="458" y="706" width="67" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.521;entryY=-0.146;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;" edge="1" parent="1" source="44" target="32">
+                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.521;entryY=-0.146;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;" parent="1" source="44" target="32" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="652" y="540"/>
@@ -143,10 +140,10 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="44" value="Process Order Payment&lt;br&gt;(Function)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" vertex="1" parent="1">
+                <mxCell id="44" value="Process Order Payment&lt;br&gt;(Function)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
                     <mxGeometry x="628" y="576" width="68" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.604;entryY=-0.031;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.951;exitY=0.567;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="47" target="32">
+                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.604;entryY=-0.031;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.951;exitY=0.567;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="47" target="32" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="728" y="744"/>
@@ -155,13 +152,10 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="46" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="47" target="49">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="47" value="Process Order Shipment&lt;br&gt;(Function)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" vertex="1" parent="1">
+                <mxCell id="47" value="Process Order Shipment&lt;br&gt;(Function)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
                     <mxGeometry x="618" y="706" width="68" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.635;entryY=-0.062;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.941;exitY=0.533;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="49" target="32">
+                <mxCell id="48" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.635;entryY=-0.062;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.941;exitY=0.533;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="49" target="32" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="738" y="872"/>
@@ -170,16 +164,16 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="49" value="Process Order Notification&lt;br&gt;(Functon)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" vertex="1" parent="1">
+                <mxCell id="49" value="Process Order Notification&lt;br&gt;(Functon)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
                     <mxGeometry x="618" y="836" width="68" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" style="edgeStyle=none;html=1;entryX=-0.021;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="51" target="52">
+                <mxCell id="50" style="edgeStyle=none;html=1;entryX=-0.021;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="51" target="52" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="51" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/management_governance/Application_Insights.svg;" vertex="1" parent="1">
+                <mxCell id="51" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/management_governance/Application_Insights.svg;" parent="1" vertex="1">
                     <mxGeometry x="138" y="870" width="44" height="63" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/analytics/Log_Analytics_Workspaces.svg;" vertex="1" parent="1">
+                <mxCell id="52" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/analytics/Log_Analytics_Workspaces.svg;" parent="1" vertex="1">
                     <mxGeometry x="238" y="870" width="64" height="64" as="geometry"/>
                 </mxCell>
             </root>
