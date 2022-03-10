@@ -54,7 +54,7 @@ namespace Company.Function
                     log.LogInformation($"Filtered order for shipping: {order.Id}", order);
                     tasks.Add(orderShippingEvents.AddAsync(orderShippingEvent));
                 }
-                else
+                else if (order.NotifiedTimestamp == null)
                 {
                     // Send an order notification event.
                     var orderNotificationEvent = new EventGridEvent("OrderShipped", "1.0", "Shipped", order);
