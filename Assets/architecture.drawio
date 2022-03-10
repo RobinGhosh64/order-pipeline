@@ -1,12 +1,12 @@
 <mxfile host="65bd71144e">
     <diagram id="frDRAHuqxv-iFKWPPFK3" name="Page-1">
-        <mxGraphModel dx="816" dy="588" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1712" dy="918" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="4" style="edgeStyle=none;html=1;" parent="1" source="2" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="245" y="250" as="targetPoint"/>
+                        <mxPoint x="220" y="250" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2" value="Order Api&lt;br&gt;[Generate, Get, Approve]&lt;br&gt;(Functions)" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" parent="1" vertex="1">
@@ -98,7 +98,7 @@
                 <mxCell id="25" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/analytics/Log_Analytics_Workspaces.svg;" parent="1" vertex="1">
                     <mxGeometry x="255" y="380" width="64" height="64" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" style="edgeStyle=none;html=1;" parent="1" source="30" edge="1">
+                <mxCell id="29" style="edgeStyle=none;html=1;entryX=-0.062;entryY=0.552;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="30" target="32" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="228" y="740" as="targetPoint"/>
                     </mxGeometry>
