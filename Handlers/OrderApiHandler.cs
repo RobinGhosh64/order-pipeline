@@ -48,7 +48,7 @@ namespace Company.Function
                 foreach (var order in orders)
                 {
                     order.CreatedTimestamp = DateTime.UtcNow;
-                    log.LogInformation($"Generated order: {order.Id}", order);
+                    log.LogInformation($"Generated order: {order.Id}");
                     tasks.Add(ordersOutput.AddAsync(order));
                 }
 
@@ -95,7 +95,7 @@ namespace Company.Function
         {
             if (order != null)
             {
-                log.LogInformation($"Retrieved order: {order.Id}", order);
+                log.LogInformation($"Retrieved order: {order.Id}");
                 return new OkObjectResult(order);
             }
             else
@@ -126,19 +126,15 @@ namespace Company.Function
         {
             if (order != null)
             {
-                if (order.Approvals == null || !order.Approvals.Any(a => !a.isApproved))
+                if (order.paymentApprovedTimestamp != null)
                 {
-                    log.LogError($"Order {id} has no pending approvals", order);
+                    log.LogError($"Order {id} has no pending approvals");
                     return new BadRequestObjectResult($"Order {id} has no pending approvals");
                 }
                 else
                 {
-                    foreach (var approval in order.Approvals)
-                    {
-                        approval.isApproved = true;
-                    }
-
-                    log.LogInformation($"Approved order: {order.Id}", order);
+                    order.paymentApprovedTimestamp = DateTime.UtcNow;
+                    log.LogInformation($"Approved order payment: {order.Id}");
                     await ordersOutput.AddAsync(order);
                     return new OkObjectResult(order);
                 }

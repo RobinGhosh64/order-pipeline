@@ -28,16 +28,16 @@ public class Order
     public decimal? Total { get; set; }
 
     [JsonProperty("lineItems")]
-    public IList<LineItem> LineItems { get; set; }
-
-    [JsonProperty("approvals")]
-    public IList<Approval> Approvals { get; set; }
+    public IList<LineItem> LineItems { get; set; } = new List<LineItem>();
 
     [JsonProperty("anticipatedDeliveryDate")]
     public DateTime? AnticipatedDeliveryDate { get; set; }
 
     [JsonProperty("createdTimestamp")]
     public DateTime? CreatedTimestamp { get; set; }
+
+    [JsonProperty("paymentApprovedTimestamp")]
+    public DateTime? paymentApprovedTimestamp { get; set; }
 
     [JsonProperty("paidTimestamp")]
     public DateTime? PaidTimestamp { get; set; }
