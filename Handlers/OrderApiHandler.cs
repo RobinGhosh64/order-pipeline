@@ -126,14 +126,14 @@ namespace Company.Function
         {
             if (order != null)
             {
-                if (order.paymentApprovedTimestamp != null)
+                if (order.PaymentApprovedTimestamp != null)
                 {
                     log.LogError($"Order {id} has no pending approvals");
                     return new BadRequestObjectResult($"Order {id} has no pending approvals");
                 }
                 else
                 {
-                    order.paymentApprovedTimestamp = DateTime.UtcNow;
+                    order.PaymentApprovedTimestamp = DateTime.UtcNow;
                     log.LogInformation($"Approved order payment: {order.Id}");
                     await ordersOutput.AddAsync(order);
                     return new OkObjectResult(order);

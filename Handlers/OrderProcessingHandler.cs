@@ -14,8 +14,8 @@ namespace Company.Function
 {
     public static class OrderProcessingHandler
     {
-        [FunctionName("ProcessUpdatedOrders")]
-        public static async Task FilterOrders(
+        [FunctionName("ProcessOrderUpdates")]
+        public static async Task ProcessOrderUpdates(
            [CosmosDBTrigger(
                 "%DatabaseName%",
                 "%CollectionName%",
@@ -34,7 +34,7 @@ namespace Company.Function
                 var order = JsonConvert.DeserializeObject<Order>(document.ToString());
 
                 var orderEvent = new EventGridEvent($"order/{order.Id}", "Updated", "1.0", order);
-                log.LogInformation($"Order updated: {order.Id}", order);
+                log.LogInformation($"Order updated: {order.Id}");
                 tasks.Add(orderEvents.AddAsync(orderEvent));
             }
 
@@ -42,8 +42,8 @@ namespace Company.Function
         }
 
         // The payment processing step requires approval if the order is over $100.
-        [FunctionName("CalculateOrderTotal")]
-        public static async Task CalculateOrderTotal(
+        [FunctionName("ProcessOrderTotal")]
+        public static async Task ProcessOrderTotal(
             [EventGridTrigger] EventGridEvent orderEvent,
             [CosmosDB(
                 "%DatabaseName%",
@@ -56,11 +56,12 @@ namespace Company.Function
             var subtotal = order.LineItems.Sum(o => o.Price * o.Quantity);
             order.Tax = Math.Round(subtotal * 0.0825m, 2);
             order.Total = subtotal + order.Tax;
+            log.LogInformation($"Processed order total: {order.Id}");
 
             // Automatically approve orders under $100.
             if (order.Total < 100)
             {
-                order.paymentApprovedTimestamp = DateTime.UtcNow;
+                order.PaymentApprovedTimestamp = DateTime.UtcNow;
                 log.LogInformation($"Approved order payment: {order.Id}");
                 await ordersOutput.AddAsync(order);
             }

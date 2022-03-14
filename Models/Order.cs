@@ -37,7 +37,7 @@ public class Order
     public DateTime? CreatedTimestamp { get; set; }
 
     [JsonProperty("paymentApprovedTimestamp")]
-    public DateTime? paymentApprovedTimestamp { get; set; }
+    public DateTime? PaymentApprovedTimestamp { get; set; }
 
     [JsonProperty("paidTimestamp")]
     public DateTime? PaidTimestamp { get; set; }
