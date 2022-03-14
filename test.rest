@@ -1,4 +1,4 @@
-@url = https://order-eg-pipeline-func.azurewebsites.net
+@url = https://order-approval-pipeline-func.azurewebsites.net
 #@url = http://localhost:7071
 
 ### Generate 1 order using query param.
@@ -27,10 +27,10 @@ Content-Type: application/json
 GET {{url}}/api/orders HTTP/1.1
 
 ### Get a specific order.
-GET {{url}}/api/orders/9809b689-7503-4d35-a68a-969a5e648c52 HTTP/1.1
+GET {{url}}/api/orders/ce8789d1-bd24-4331-aee1-e4d411cf5125 HTTP/1.1
 
 ### Approve a specific order.
-POST {{url}}/api/orders/9809b689-7503-4d35-a68a-969a5e648c52/approve HTTP/1.1
+POST {{url}}/api/orders/ce8789d1-bd24-4331-aee1-e4d411cf5125/approve HTTP/1.1
 
 ### Delete all orders.
 DELETE {{url}}/api/orders HTTP/1.1
