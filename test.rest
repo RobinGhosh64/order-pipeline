@@ -27,10 +27,10 @@ Content-Type: application/json
 GET {{url}}/api/orders HTTP/1.1
 
 ### Get a specific order.
-GET {{url}}/api/orders/ce8789d1-bd24-4331-aee1-e4d411cf5125 HTTP/1.1
+GET {{url}}/api/orders/330ef2c3-0f5c-4c86-a0bb-b8a3f84942e4 HTTP/1.1
 
 ### Approve a specific order.
-POST {{url}}/api/orders/ce8789d1-bd24-4331-aee1-e4d411cf5125/approve HTTP/1.1
+POST {{url}}/api/orders/330ef2c3-0f5c-4c86-a0bb-b8a3f84942e4/approve HTTP/1.1
 
 ### Delete all orders.
 DELETE {{url}}/api/orders HTTP/1.1

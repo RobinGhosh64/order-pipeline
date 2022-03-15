@@ -9,6 +9,9 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using System;
 using Azure.Messaging.EventGrid;
+using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
+using System.Text.Json;
+using Microsoft.Azure.WebPubSub.Common;
 
 namespace Company.Function
 {
@@ -16,16 +19,17 @@ namespace Company.Function
     {
         [FunctionName("ProcessOrderUpdates")]
         public static async Task ProcessOrderUpdates(
-           [CosmosDBTrigger(
+            [CosmosDBTrigger(
                 "%DatabaseName%",
                 "%CollectionName%",
                 ConnectionStringSetting = "CosmosDBConnection",
                 LeaseCollectionName = "OrderLeases",
                 CreateLeaseCollectionIfNotExists = true)] IReadOnlyList<Document> documents,
-           [EventGrid(
+            [EventGrid(
                 TopicEndpointUri = "OrderTopicEndpoint",
                 TopicKeySetting = "OrderTopicKey")] IAsyncCollector<EventGridEvent> orderEvents,
-           ILogger log)
+            [WebPubSub(Hub = "orders", Connection = "WebPubSubConnection")] IAsyncCollector<WebPubSubAction> actions,
+            ILogger log)
         {
             var tasks = new List<Task>();
 
@@ -36,6 +40,11 @@ namespace Company.Function
                 var orderEvent = new EventGridEvent($"order/{order.Id}", "Updated", "1.0", order);
                 log.LogInformation($"Order updated: {order.Id}");
                 tasks.Add(orderEvents.AddAsync(orderEvent));
+                tasks.Add(actions.AddAsync(new SendToAllAction
+                {
+                    Data = BinaryData.FromObjectAsJson(order, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }),
+                    DataType = WebPubSubDataType.Json
+                }));
             }
 
             await Task.WhenAll(tasks);

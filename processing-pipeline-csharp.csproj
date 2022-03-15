@@ -8,6 +8,7 @@
     <PackageReference Include="Bogus" Version="34.0.1" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="3.0.10" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.EventGrid" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.WebPubSub" Version="1.2.0" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.0" />
   </ItemGroup>
   <ItemGroup>
