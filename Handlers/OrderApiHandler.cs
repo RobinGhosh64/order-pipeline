@@ -10,10 +10,6 @@ using Company.Function.Generators;
 using Company.Function.Models;
 using System.Collections.Generic;
 using System;
-using System.Linq;
-using Microsoft.Azure.Documents.Client;
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
 
 namespace Company.Function
 {
@@ -79,33 +75,6 @@ namespace Company.Function
             return new OkObjectResult(orders);
         }
 
-        [FunctionName("GetOrderById")]
-        public static IActionResult GetOrderById(
-            [HttpTrigger(
-                AuthorizationLevel.Anonymous,
-                "get",
-                Route = "orders/{id}")] HttpRequest req,
-            [CosmosDB(
-                "%DatabaseName%",
-                "%CollectionName%",
-                ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{id}",
-                PartitionKey = "{id}")] Order order,
-            Guid id,
-            ILogger log)
-        {
-            if (order != null)
-            {
-                log.LogInformation($"Retrieved order: {order.Id}");
-                return new OkObjectResult(order);
-            }
-            else
-            {
-                log.LogError($"Order not found: {id}");
-                return new NotFoundObjectResult($"Order not found: {id}");
-            }
-        }
-
         [FunctionName("ApproveOrder")]
         public static async Task<IActionResult> ApproveOrder(
             [HttpTrigger(
@@ -145,86 +114,6 @@ namespace Company.Function
                 log.LogError($"Order not found: {id}");
                 return new NotFoundObjectResult($"Order not found: {id}");
             }
-        }
-
-        [FunctionName("DeleteOrders")]
-        public static async Task<IActionResult> DeleteOrders(
-            [HttpTrigger(
-                AuthorizationLevel.Anonymous,
-                "delete",
-                Route = "orders")] HttpRequest req,
-            [CosmosDB(
-                "%DatabaseName%",
-                "%CollectionName%",
-                ConnectionStringSetting = "CosmosDBConnection",
-                SqlQuery = "Select * FROM o")] IEnumerable<Order> orders,
-            [CosmosDB(
-                "%DatabaseName%",
-                "%CollectionName%",
-                ConnectionStringSetting = "CosmosDBConnection")] DocumentClient client,
-            ILogger log)
-        {
-            var databaseName = Environment.GetEnvironmentVariable("DatabaseName");
-            var collectionName = Environment.GetEnvironmentVariable("CollectionName");
-            var tasks = new List<Task>();
-
-            foreach (var order in orders)
-            {
-                tasks.Add(client.DeleteDocumentAsync(
-                    UriFactory.CreateDocumentUri(databaseName, collectionName, order.Id.ToString()),
-                    new RequestOptions { PartitionKey = new PartitionKey(order.Id.ToString()) }));
-            }
-
-            await Task.WhenAll(tasks);
-            return new OkObjectResult($"Deleted {tasks.Count} orders");
-        }
-
-        [FunctionName("DeleteOrderById")]
-        public static async Task<IActionResult> DeleteOrderById(
-            [HttpTrigger(
-                AuthorizationLevel.Anonymous,
-                "delete",
-                Route = "orders{id}")] HttpRequest req,
-            [CosmosDB(
-                "%DatabaseName%",
-                "%CollectionName%",
-                ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{id}",
-                PartitionKey = "{id}")] Order order,
-            [CosmosDB(
-                "%DatabaseName%",
-                "%CollectionName%",
-                ConnectionStringSetting = "CosmosDBConnection")] DocumentClient client,
-            Guid id,
-            ILogger log)
-        {
-            var databaseName = Environment.GetEnvironmentVariable("DatabaseName");
-            var collectionName = Environment.GetEnvironmentVariable("CollectionName");
-
-            if (order == null)
-            {
-                log.LogError($"Order not found: {id}");
-                return new NotFoundObjectResult($"Order not found: {id}");
-            }
-            else
-            {
-                await client.DeleteDocumentAsync(
-                    UriFactory.CreateDocumentUri(databaseName, collectionName, order.Id.ToString()),
-                    new RequestOptions { PartitionKey = new PartitionKey(order.Id.ToString()) });
-
-                log.LogInformation($"Deleted order: {order.Id}");
-                return new OkObjectResult($"Deleted order: {order.Id}");
-            }
-        }
-
-        [FunctionName("NegotiateOrdersWebSocket")]
-        public static WebPubSubConnection NegotiateOrdersWebSocket(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "orders/negotiate")] HttpRequest req,
-            [WebPubSubConnection(Hub = "orders", Connection = "WebPubSubConnection")] WebPubSubConnection connection,
-            ILogger log)
-        {
-            log.LogInformation("Negotiating WebSocket connection");
-            return connection;
         }
     }
 }

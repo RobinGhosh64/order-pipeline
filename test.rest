@@ -1,5 +1,4 @@
-@url = https://order-approval-pipeline-func.azurewebsites.net
-#@url = http://localhost:7071
+@url = http://localhost:7071
 
 ### Generate 1 order using query param.
 POST {{url}}/api/orders?count=1 HTTP/1.1
@@ -34,6 +33,9 @@ POST {{url}}/api/orders/330ef2c3-0f5c-4c86-a0bb-b8a3f84942e4/approve HTTP/1.1
 
 ### Delete all orders.
 DELETE {{url}}/api/orders HTTP/1.1
+
+### Delete all orders.
+DELETE {{url}}/api/orders/3aaa940c-a144-4cf8-8f43-784a61c5b915 HTTP/1.1
 
 ### Send event for order payment. (Only works locally)
 POST http://localhost:7071/runtime/webhooks/EventGrid?functionName=ProcessOrderPayment HTTP/1.1
